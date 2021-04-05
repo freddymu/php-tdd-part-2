@@ -1,0 +1,35 @@
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+
+  <testsuites>
+    <testsuite name="Project Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <coverage cacheDirectory="code_coverage_cache"
+            includeUncoveredFiles="true"
+            processUncoveredFiles="true"
+            pathCoverage="true"
+            ignoreDeprecatedCodeUnits="true"
+            disableCodeCoverageIgnore="true">
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+    <report>
+<!--      <clover outputFile="clover.xml"/>-->
+<!--      <crap4j outputFile="crap4j.xml" threshold="50"/>-->
+      <html outputDirectory="html-coverage" lowUpperBound="50" highLowerBound="90"/>
+<!--      <php outputFile="coverage.php"/>-->
+<!--      <text outputFile="coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>-->
+<!--      <xml outputDirectory="xml-coverage"/>-->
+    </report>
+  </coverage>
+
+</phpunit>
