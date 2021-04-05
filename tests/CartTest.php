@@ -16,6 +16,11 @@ class CartTest extends TestCase
     $this->faker = Factory::create('id_ID');
   }
 
+  function someTestCases()
+  {
+    //TODO: create dataProvider
+  }
+
   function testAddItemToCart()
   {
     // Given
@@ -86,15 +91,15 @@ class CartTest extends TestCase
 
   function testRemovesAnItem()
   {
-      // Given
+    // Given
     $cart = new Cart();
     $products = $cart->getItems();
     $productEntity = array_pop($products);
 
-      // When
+    // When
     $result = $cart->removeItem($productEntity);
 
-      // Then
+    // Then
     self::assertNotContains($productEntity, $result);
   }
 
