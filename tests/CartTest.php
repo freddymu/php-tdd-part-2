@@ -76,12 +76,12 @@ class CartTest extends TestCase
     $cart = new Cart();
 
     // When
-    $result = $cart->getItems();
+    $result = $cart->calculateItemsOnCart();
 
     // print_r($result);
 
     // Then
-    self::assertNotEmpty($result);
+    self::assertGreaterThan(0, $result);
   }
 
   function testRemovesAnItem()

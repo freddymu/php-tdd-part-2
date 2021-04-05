@@ -74,4 +74,15 @@ class Cart
 
     return self::$items;
   }
+
+  public function calculateItemsOnCart()
+  {
+    $total = 0;
+
+    foreach (self::$items as $item) {
+      $total += $item->price * $item->quantity;
+    }
+
+    return $total;
+  }
 }
