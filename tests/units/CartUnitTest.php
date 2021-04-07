@@ -1,13 +1,11 @@
 <?php
 
-namespace Tests\Feature;
-
 use Faker\Factory;
 use Freddymu\UseCase\Cart;
 use Freddymu\Entities\ProductEntity;
 use PHPUnit\Framework\TestCase;
 
-class CartTest extends TestCase
+class CartUnitTest extends TestCase
 {
   private $faker;
 
