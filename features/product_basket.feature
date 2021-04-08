@@ -1,29 +1,30 @@
-Feature: Product basket
-  In order to buy products
-  As a customer
-  I need to be able to put interesting products into a basket
+# language: id
+Fitur: Keranjang Belanja
+  Untuk membeli produk
+  Sebagai pelanggan
+  Saya harus bisa memasukkan produk yang menarik ke dalam keranjang
 
-  Rules:
-  - VAT is 20%
-  - Delivery for basket under £10 is £3
-  - Delivery for basket over £10 is £2
+  Dasar:
+  - PPN sebesar 20%
+  - Pengiriman untuk keranjang di bawah £10 adalah £3
+  - Pengiriman untuk keranjang di atas £10 adalah £2
 
-  Scenario: Buying a single product under £10
-    Given there is a "Sith Lord Lightsaber", which costs £5
-    When I add the "Sith Lord Lightsaber" to the basket
-    Then I should have 1 product in the basket
-    And the overall basket price should be £9
+  Skenario: Buying a single product under £10
+    Jika there is a "Sith Lord Lightsaber", which costs £5
+    Ketika I add the "Sith Lord Lightsaber" to the basket
+    Maka I should have 1 product in the basket
+    Dan the overall basket price should be £9
 
-  Scenario: Buying a single product over £10
-    Given there is a "Sith Lord Lightsaber", which costs £15
-    When I add the "Sith Lord Lightsaber" to the basket
-    Then I should have 1 product in the basket
-    And the overall basket price should be £20
+  Skenario: Buying a single product over £10
+    Jika there is a "Sith Lord Lightsaber", which costs £15
+    Ketika I add the "Sith Lord Lightsaber" to the basket
+    Maka I should have 1 product in the basket
+    Dan the overall basket price should be £20
 
-  Scenario: Buying two products over £10
-    Given there is a "Sith Lord Lightsaber", which costs £10
-    And there is a "Jedi Lightsaber", which costs £5
-    When I add the "Sith Lord Lightsaber" to the basket
-    And I add the "Jedi Lightsaber" to the basket
-    Then I should have 2 products in the basket
-    And the overall basket price should be £20
+  Skenario: Buying two products over £10
+    Jika there is a "Sith Lord Lightsaber", which costs £10
+    Dan there is a "Jedi Lightsaber", which costs £5
+    Ketika I add the "Sith Lord Lightsaber" to the basket
+    Dan I add the "Jedi Lightsaber" to the basket
+    Maka I should have 2 products in the basket
+    Dan the overall basket price should be £20

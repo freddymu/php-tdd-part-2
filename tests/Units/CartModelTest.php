@@ -1,0 +1,13 @@
+<?php
+
+
+namespace Units;
+
+
+use Freddymu\Models\CartModel;
+use PHPUnit\Framework\TestCase;
+
+class CartModelTest extends TestCase
+{
+
+}

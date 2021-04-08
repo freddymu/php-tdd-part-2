@@ -7,7 +7,8 @@
     "fakerphp/faker": "^1.14",
     "spatie/phpunit-watcher": "^1.23",
     "phpmd/phpmd": "^2.9",
-    "behat/behat": "^3.8"
+    "behat/behat": "^3.8",
+    "codeception/codeception": "^4.1"
   },
   "license": "MIT",
   "authors": [
@@ -18,7 +19,11 @@
   ],
   "autoload": {
     "psr-4": {
-      "Freddymu\\": "src/"
+      "Freddymu\\": "src/",
+      "Tests\\": "tests/"
     }
+  },
+  "require": {
+    "ext-sqlite3": "*"
   }
 }

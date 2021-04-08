@@ -1,5 +1,7 @@
 <?php
 
+namespace Units;
+
 use Faker\Factory;
 use Freddymu\UseCase\Cart;
 use Freddymu\Entities\ProductEntity;
