@@ -4,7 +4,7 @@ namespace Freddymu\Entities;
 
 use Freddymu\Entities\ProductEntity;
 
-class CartEntity {
+class CartEntity extends BaseEntity {
 
   /**
    * @var string

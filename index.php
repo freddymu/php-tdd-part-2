@@ -36,7 +36,7 @@ $response = [
 // ------------------------------------------------------------------------
 // APPLICATION CODE
 // ------------------------------------------------------------------------
-$cart = new \Freddymu\UseCase\Cart();
+$cart = new \Freddymu\UseCase\CartService();
 
 if ($method === 'post' && !empty($body) && $path === '/cart') {
 

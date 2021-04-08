@@ -4,7 +4,7 @@
 namespace Freddymu\Entities;
 
 
-class ProductEntity
+class ProductEntity extends BaseEntity
 {
   /**
    * @var int
@@ -17,16 +17,24 @@ class ProductEntity
   /**
    * @var string
    */
-  public $name;
+  public $productName;
   /**
    * @var string
    */
-  public $id;
+  public $productId;
 
   /**
    * ProductEntity constructor.
    */
-  public function __construct()
+  public function __construct(
+    $productId = null,
+    $productName = null,
+    $quantity = null,
+    $price = null)
   {
+    $this->productId = $productId;
+    $this->productName = $productName;
+    $this->quantity = $quantity;
+    $this->price = $price;
   }
 }

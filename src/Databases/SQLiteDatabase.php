@@ -6,33 +6,39 @@ class SQLiteDatabase
 {
   private $db;
 
+  protected $tableName;
+
   final public function __construct($dbPath = null)
   {
     $filename = $dbPath ?? __DIR__ . DIRECTORY_SEPARATOR . 'test.db';
     $this->db = new \SQLite3($filename);
   }
 
-  public function browse($tableName, array $payload = [])
-  {
-    return $this->db->query("SELECT * FROM {$tableName}")->fetchArray();
+  public function setTableName($tableName) {
+    $this->tableName = $tableName;
   }
 
-  public function read($tableName, array $payload)
+  public function browse(array $payload = [])
+  {
+    return $this->db->query("SELECT * FROM {$this->tableName}");
+  }
+
+  public function read(array $payload)
   {
 
   }
 
-  public function edit($tableName, array $payload)
+  public function edit(array $payload)
   {
 
   }
 
-  public function add($tableName, array $payload)
+  public function add(array $payload)
   {
     $fields = implode(',', array_keys($payload));
     $values = ':' . implode(', :', array_keys($payload));
 
-    $stmt = $this->db->prepare("INSERT INTO {$tableName}({$fields}) VALUES({$values})");
+    $stmt = $this->db->prepare("INSERT INTO {$this->tableName}({$fields}) VALUES({$values})");
 
     foreach ($payload as $key => $value) {
       if (is_string($value)) {
@@ -42,10 +48,10 @@ class SQLiteDatabase
       }
     }
 
-    return $stmt->execute();
+    return $stmt->execute() !== false;
   }
 
-  public function delete($tableName, array $payload)
+  public function delete(array $payload)
   {
 
   }

@@ -2,7 +2,7 @@
 
 namespace Freddymu\Entities;
 
-class VoucherEntity
+class VoucherEntity extends BaseEntity
 {
 
   /**

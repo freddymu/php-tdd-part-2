@@ -36,10 +36,10 @@ class SQLiteDatabaseTest extends TestCase
 
     // Given
     $db = new SQLiteDatabase();
-    $tableName = 'carts';
+    $db->setTableName('carts');
 
     // When
-    $result = $db->browse($tableName);
+    $result = $db->browse();
 
     // var_dump($result);
 
@@ -51,7 +51,7 @@ class SQLiteDatabaseTest extends TestCase
   {
     // Given
     $db = new SQLiteDatabase();
-    $tableName = 'carts';
+    $db->setTableName('carts');
     $payload = [
       'productId' => $this->faker->numberBetween(1, 100),
       'productName' => $this->faker->name,
@@ -60,12 +60,10 @@ class SQLiteDatabaseTest extends TestCase
     ];
 
     // When
-    $result = $db->add($tableName, $payload);
-
-    // var_dump($result);
+    $result = $db->add($payload);
 
     // Then
-    self::assertNotNull($result);
+    self::assertTrue($result);
   }
 
 }

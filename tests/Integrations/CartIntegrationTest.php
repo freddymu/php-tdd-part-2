@@ -2,15 +2,24 @@
 
 namespace Integrations;
 
+use Freddymu\Models\CartModel;
+
 class CartIntegrationTest extends \PHPUnit\Framework\TestCase {
 
-  // setup database
+//  private $model;
+//
+//  // setup database
+//  protected function setUp(): void
+//  {
+//    $this->model = new CartModel();
+//  }
 
   function testAddItemToCart()
   {
       //TODO: AddItemToCart
 
       // Given
+    // HTTP
 
       // When
 

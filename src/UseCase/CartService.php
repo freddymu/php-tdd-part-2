@@ -4,10 +4,14 @@
 namespace Freddymu\UseCase;
 
 
+use Freddymu\Entities\GenericResponseEntity;
 use Freddymu\Entities\ProductEntity;
+use Freddymu\Models\CartModel;
 
-class Cart
+class CartService
 {
+
+  private $model;
 
   /**
    * @var ProductEntity[]
@@ -16,16 +20,45 @@ class Cart
 
   /**
    * Cart constructor.
+   * @param CartModel $model
    */
-  public function __construct()
+  public function __construct(CartModel $model)
   {
-
+    $this->model = $model;
   }
 
   public function addItem(ProductEntity $productEntity)
   {
-    self::$items[] = $productEntity;
-    return self::$items;
+    $response = new GenericResponseEntity();
+
+    // validation
+    if ($productEntity->productId === null) {
+      $response->message = 'Product ID harus diisi.';
+      return $response;
+    }
+
+    if ($productEntity->productName === null) {
+      $response->message = 'Product Name harus diisi.';
+      return $response;
+    }
+
+    if ($productEntity->quantity <= 0) {
+      $response->message = 'Quantity produk harus diisi.';
+      return $response;
+    }
+
+    if ($productEntity->price <= 0) {
+      $response->message = 'Harga tidak boleh nol.';
+      return $response;
+    }
+
+    $result = $this->model->add($productEntity->toArray());
+
+    $response->success = $result;
+    $response->message = 'adding new item to cart';
+    $response->data = $result;
+
+    return $response;
   }
 
   public function getItems()
@@ -39,7 +72,7 @@ class Cart
     $foundItem = null;
 
     foreach (self::$items as $index => $item) {
-      if ($item->id === $productEntity->id) {
+      if ($item->productId === $productEntity->productId) {
         $foundIndex = $index;
         $foundItem = $item;
         break;
@@ -60,7 +93,7 @@ class Cart
     $foundIndex = null;
 
     foreach (self::$items as $index => $item) {
-      if ($item->id === $productEntity->id) {
+      if ($item->productId === $productEntity->productId) {
         $foundIndex = $index;
         break;
       }
