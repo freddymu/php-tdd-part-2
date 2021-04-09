@@ -52,6 +52,8 @@ class CartUnitTest extends TestCase
       [$this->createProductEntity()],
       [$this->createProductEntity()],
       [$this->createProductEntity()],
+      [$this->createProductEntity()],
+      [$this->createProductEntity()],
     ];
   }
 
@@ -67,6 +69,7 @@ class CartUnitTest extends TestCase
 
     // Dummy object, just to pass the constructor
     $cartModel = $this->createMock(CartModel::class);
+    //$cartModel = new CartModel();
 
     $cart = new CartService($cartModel);
 

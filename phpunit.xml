@@ -25,7 +25,7 @@
     <report>
 <!--      <clover outputFile="clover.xml"/>-->
 <!--      <crap4j outputFile="crap4j.xml" threshold="50"/>-->
-      <html outputDirectory="html-coverage" lowUpperBound="50" highLowerBound="90"/>
+      <html outputDirectory="html-coverage" lowUpperBound="80" highLowerBound="95"/>
 <!--      <php outputFile="coverage.php"/>-->
 <!--      <text outputFile="coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>-->
 <!--      <xml outputDirectory="xml-coverage"/>-->

@@ -26,17 +26,14 @@ http_response_code(404);
 // ------------------------------------------------------------------------
 
 // default http response body
-$response = [
-  'success' => false,
-  'message' => 'No matched routes.',
-  'data' => null
-];
-
+$response = new \Freddymu\Entities\GenericResponseEntity();
+$response->message = 'No matched routes.';
 
 // ------------------------------------------------------------------------
 // APPLICATION CODE
 // ------------------------------------------------------------------------
-$cart = new \Freddymu\UseCase\CartService();
+$cartModel = new \Freddymu\Models\CartModel();
+$cart = new \Freddymu\UseCase\CartService($cartModel);
 
 if ($method === 'post' && !empty($body) && $path === '/cart') {
 
@@ -45,9 +42,7 @@ if ($method === 'post' && !empty($body) && $path === '/cart') {
 
   objectMapper($jsonPayload, $productEntity);
 
-  $response['success'] = true;
-  $response['message'] = 'Add item to cart.';
-  $response['data'] = $cart->addItem($productEntity);
+  $response = $cart->addItem($productEntity);
 }
 
 if ($method === 'get' && $path === '/cart') {
@@ -95,7 +90,7 @@ if ($method === 'get' && !empty($body) && $path === '/cart/calculate') {
   $response['data'] = $result;
 }
 
-if ($response['success']) {
+if ($response->success) {
   http_response_code(200);
 }
 // ------------------------------------------------------------------------

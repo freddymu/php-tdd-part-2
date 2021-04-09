@@ -6,25 +6,25 @@ Fitur: Keranjang Belanja
 
   Dasar:
   - PPN sebesar 20%
-  - Pengiriman untuk keranjang di bawah Rp100000 adalah Rp30000
-  - Pengiriman untuk keranjang di atas Rp100000 adalah Rp20000
+  - Pengiriman untuk keranjang di bawah £10 adalah £3
+  - Pengiriman untuk keranjang di atas £10 adalah £2
 
-  Skenario: Membeli satu produk di bawah Rp100000
-    Jika ada "Sith Lord Lightsaber", dengan harga Rp50000
-    Ketika Saya menambahkan "Sith Lord Lightsaber" ke keranjang
-    Maka Saya harus memiliki 1 produk di keranjang
-    Dan harga keranjang keseluruhan Rp90000
+  Skenario: Buying a single product under £10
+  Jika there is a "Sith Lord Lightsaber", which costs £5
+    Ketika I add the "Sith Lord Lightsaber" to the basket
+    Maka I should have 1 product in the basket
+    Dan the overall basket price should be £9
 
-  Skenario: Membeli satu produk di atas Rp100000
-    Jika ada "Sith Lord Lightsaber", dengan harga Rp150000
-    Ketika Saya menambahkan "Sith Lord Lightsaber" ke keranjang
-    Maka Saya harus memiliki 1 produk di keranjang
-    Dan harga keranjang keseluruhan Rp200000
+  Skenario: Buying a single product over £10
+  Jika there is a "Sith Lord Lightsaber", which costs £15
+    Ketika I add the "Sith Lord Lightsaber" to the basket
+    Maka I should have 1 product in the basket
+    Dan the overall basket price should be £20
 
-  Skenario: Membeli dua produk di atas Rp100000
-    Jika ada "Sith Lord Lightsaber", dengan harga Rp120000
-    Dan ada "Jedi Lightsaber", dengan harga Rp150000
-    Ketika Saya menambahkan "Sith Lord Lightsaber" ke keranjang
-    Dan Saya menambahkan "Jedi Lightsaber" ke keranjang
-    Maka Saya harus memiliki 2 produk di keranjang
-    Dan harga keranjang keseluruhan Rp270000
+  Skenario: Buying two products over £10
+  Jika there is a "Sith Lord Lightsaber", which costs £10
+    Dan there is a "Jedi Lightsaber", which costs £5
+    Ketika I add the "Sith Lord Lightsaber" to the basket
+    Dan I add the "Jedi Lightsaber" to the basket
+    Maka I should have 2 products in the basket
+    Dan the overall basket price should be £20
